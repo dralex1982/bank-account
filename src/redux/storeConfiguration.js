@@ -1,7 +1,7 @@
-import Store from "./Store";
 import accountReducer from "./accountReducer";
+import {createStore} from "redux";
 
 const initialState = {balance: 10000};
-const store = new Store(initialState, accountReducer);
+const store = createStore(accountReducer, initialState);
 
 export default store;

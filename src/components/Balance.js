@@ -1,24 +1,14 @@
-import React, {Component} from 'react';
-import store from "../redux/storeConfiguration";
+import React from 'react';
+import {useSelector} from "react-redux";
 
-class Balance extends Component {
-    componentDidMount() {
-        this.unsubscribe = store.subscribe(() => this.forceUpdate());
-    }
-
-    componentWillUnmount() {
-        this.unsubscribe();
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Bank Hapoalim</h1>
-                <h3>Balance = {store.getState().balance}</h3>
-            </div>
-        );
-    }
-
+const Balance = () => {
+    const balance = useSelector(state => state.balance);
+    return (
+        <div>
+            <h1 className={'text-center text-uppercase'}>Bank Hapoalim</h1>
+            <h3 className={'text-center text-uppercase'}>Balance = {balance}</h3>
+        </div>
+    );
 };
 
 export default Balance;
