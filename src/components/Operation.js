@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import {number} from "prop-types";
+import store from "../redux/storeConfiguration";
+import {depositAction, withdrawAction} from "../redux/accountActions";
 
-const Operation = ({deposit, withdraw}) => {
+const Operation = () => {
     const [sum,setSum] = useState(1);
     return (
         <div>
-            <button onClick={()=> withdraw(sum)}>Withdraw</button>
+            <button onClick={()=> store.dispatch(withdrawAction(sum))}>Withdraw</button>
             <input type={'number'} min={0}
                    onChange={e=> setSum(+e.target.value)} value={sum}/>
-            <button onClick={() => deposit(sum)}>Deposit</button>
+            <button onClick={() => store.dispatch(depositAction(sum))}>Deposit</button>
         </div>
     );
 };
