@@ -25,6 +25,6 @@ export const getQuoteAction = () => {
         fetch('https://api.kanye.rest/')
             .then(response => response.json())
             .then(data => dispatch(putQuoteAction(data.quote)))
-            .catch((error)=> dispatch(errorQuoteAction(error)))
+            .catch(error=> dispatch(errorQuoteAction(error)))
     }
 }

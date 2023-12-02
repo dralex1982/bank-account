@@ -5,7 +5,6 @@ import {getQuoteAction} from "../redux/actions/quoteAction";
 
 const Operation = () => {
     const [sum, setSum] = useState(1);
-
     const dispatch = useDispatch();
 
     return (
