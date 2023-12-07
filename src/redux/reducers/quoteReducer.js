@@ -1,16 +1,25 @@
-import {ERROR_QUOTE, PUT_QUOTE, QUOTE_REQUEST} from "../actions/quoteAction";
+import {errorQuoteAction, putQuoteAction, quoteRequestAction} from "../actions/quoteAction";
+import {createReducer} from "@reduxjs/toolkit";
 
 const initialQuote = 'He-he-he...';
 
-function quoteReducer(quote = initialQuote, action) {
-    switch (action.type) {
-        case PUT_QUOTE:
-        case QUOTE_REQUEST:
-        case ERROR_QUOTE:
-            return action.payload;
-        default:
-            return quote;
-    }
-}
+// Builder callback notation
+const quoteReducer =
+    createReducer(initialQuote, builder =>
+    {
+        builder
+            .addCase(putQuoteAction, (quote, action) =>
+            {
+                return action.payload
+            })
+            .addCase(errorQuoteAction, (quote, action) =>
+            {
+                return action.payload
+            })
+            .addCase(quoteRequestAction, (quote, action) =>
+            {
+                return action.payload
+            })
+    })
 
 export default quoteReducer;

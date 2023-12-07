@@ -1,14 +1,4 @@
-export const DEPOSIT = 'DEPOSIT';
-export const WITHDRAW = 'WITHDRAW'
+import {createAction} from "@reduxjs/toolkit";
 
-export const depositAction = sum =>
-    ({
-        type: DEPOSIT,
-        payload: sum
-    });
-
-export const withdrawAction = sum=>
-    ({
-        type: WITHDRAW,
-        payload: sum
-    })
+export const depositAction = createAction('DEPOSIT');
+export const withdrawAction = createAction('WITHDRAW');
