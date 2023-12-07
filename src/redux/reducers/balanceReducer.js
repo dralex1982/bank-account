@@ -3,7 +3,7 @@ import {createReducer} from "@reduxjs/toolkit";
 
 const initialBalance = 10000;
 
-// Builder callback notation
+//Map object notation
 const balanceReducer =
     createReducer(initialBalance, builder => {
         builder
